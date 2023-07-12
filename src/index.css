@@ -11,3 +11,27 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.message{
+  color: white;
+}
+
+.gesendet{
+  margin-left: 130px;
+  color:black;
+  width: 50%;
+  background-color: green;
+}
+
+.erhaltet{
+  color:black;
+  width: 50%;
+  background-color: blue;
+}
+
+.img{
+  background-color: black;
+  width: 40px;
+  height: 40px;
+  border-radius: 150px;
+}

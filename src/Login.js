@@ -11,8 +11,8 @@ import { UserAuth } from './context/Context';
 
 const Login = () => {
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('albert@live.it');
+  const [password, setPassword] = useState('maria123');
   const [error, setError] = useState('');
   const navigate = useNavigate();
   const { signIn } = UserAuth();
@@ -35,9 +35,9 @@ const Login = () => {
         <div className={styles.container}>
             <form className={styles.form} onSubmit={handleSubmit}>
             <label>Login</label>
-            <input  placeholder="albert@live.it"  type="email" onChange={(e) => setEmail(e.target.value)}></input>
+            <input  placeholder="albert@live.it"  type="email" onChange={(e) => setEmail(e.target.value)} ></input>
             <label  >Password</label>
-            <input placeholder="maria123" type="password" onChange={(e) => setPassword(e.target.value)}></input>
+            <input placeholder="maria123" type="password" onChange={(e) => setPassword(e.target.value)} ></input>
             <button >Collegati</button>
             <Link to='/Logup' className={styles.link}>Non hai un account?<span>Registrati</span></Link>
             <p>Or</p>

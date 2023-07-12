@@ -3,6 +3,7 @@ import {Timestamp, limit, query, orderBy, FieldValue, collection, addDoc, getDoc
 import styles2 from './scss/Chat.module.css'
 
 import { db } from './firebase-config';
+import 'firebase/auth';
 
 
 import { UserAuth } from './context/Context';
@@ -32,12 +33,16 @@ export default function Chat() {
     getUsers()
   }, [])
 
+  const {uidUser} = user.uid;
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await addDoc(collection(db, "users", user.uid, "unfiIZzkvaRj1P64OuCC1ULzb9I3", "Chat", "Message"), {
-      message_mir: message,
+    await addDoc(messagesRef, {
+    
+      text: message,
       createdAt: Timestamp.fromDate(new Date()),
+      uid: user.uid,
     });
     //alert('Added');
     setMessage("");
@@ -52,10 +57,9 @@ export default function Chat() {
         
     
             <div>
+            
             {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
             </div>
-    
-
         <form onSubmit={handleSubmit} className={styles2.message_sender}>
 
           <input
@@ -70,6 +74,8 @@ export default function Chat() {
           <button disabled={!message} type="submit">X</button>
         </form>
       </div>
+    
+
 
     </main>
   )
@@ -77,14 +83,16 @@ export default function Chat() {
 
 
 function ChatMessage(props) {
+
   const { user } = UserAuth();
+
   const { text, uid, photoURL } = props.message;
 
-  const messageClass = uid === user.currentUser.uid ? 'sent' : 'received';
+  const messageClass = uid === user.uid ? "gesendet" : "erhaltet";
 
   return (<>
     <div className={`message ${messageClass}`}>
-      <img src={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'} />
+      <img className='img' src={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'} />
       <p>{text}</p>
     </div>
   </>)

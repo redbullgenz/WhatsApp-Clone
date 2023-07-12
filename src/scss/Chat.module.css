@@ -18,10 +18,9 @@
   margin-left: 150px;
 }
 .chat_verlauf .message_sender {
-  margin-top: 420px;
-  margin-left: 0px;
-  display: flex;
   position: absolute;
+  top: 44%;
+  display: flex;
 }
 .chat_verlauf .message_sender input {
   width: 300px;
@@ -30,6 +29,7 @@
   z-index: 0;
 }
 .chat_verlauf .message_sender button {
+  top: 0;
   position: absolute;
   margin-left: 260px;
   z-index: 20;
@@ -38,4 +38,12 @@
   background-color: rgb(170, 170, 170);
   border: none;
   cursor: pointer;
+}
+
+.gesendet {
+  color: red;
+}
+
+.erhaltet {
+  color: white;
 }/*# sourceMappingURL=Chat.module.css.map */
