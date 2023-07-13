@@ -1,6 +1,5 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was created using Next.js with Firebase as the backend. <br/>
 
 
 You can try the chat with the following credentials: <br/>
